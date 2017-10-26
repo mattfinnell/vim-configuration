@@ -42,7 +42,6 @@ set expandtab
 
 colorscheme solarized
 
-let g:bufferline_echo = 0
 set shortmess+=O
 
 " Set nerdcommenter settings
