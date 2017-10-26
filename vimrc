@@ -42,8 +42,6 @@ set expandtab
 
 colorscheme solarized
 
-set shortmess+=O
-
 " Set nerdcommenter settings
 let g:NERDSpaceDelims = 1 
 let g:NERDDefaultAlign = 'left'
