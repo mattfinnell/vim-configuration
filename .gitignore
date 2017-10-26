@@ -1,4 +1,5 @@
 .netrwhist
 .DS_Store
 
-_bundle
+plugged
+_*
