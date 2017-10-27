@@ -9,22 +9,30 @@
 - Any language specific configuration that deviates from the defaults must be set in `ftplugin/{{lang}}.vim`
 - Plugins are expected to work out of the box with no configuration. Any configuration must be minimal, otherwise the plugin is considered trash.
 
-## Tricky Spot - YCM
-[`You Complete Me`](https://github.com/Valloric/YouCompleteMe) needs to compile things.
+### Tricky Spot - YCM
+[`YouCompleteMe`](https://github.com/Valloric/YouCompleteMe) is a crazy beast and needs to compile things.
 
 ```
-cd ~/.vim/plugged/YouCompleteMe/
-./install.py [flags]
+cd ~/.vim/
+
+brew install cmake
+brew install npm
+
+rm -rf /usr/local/lib/node_modules/
+
+./Plugged/YouCompleteMe/install.py --clang-completer --js-completer
 ```
-Where `flags` can be any combination of the following
 
-- `--cs-completer` for C# stuff
-- `--go-completer` for google Go
-- `--js-completer` for JavaScript
-- `--rust-completer` for Rust
-- `--all` for none of the above
+Removal of the global `node_modules` directory is explained by [this issue](https://github.com/npm/npm/issues/16542).
 
-Idk why am I typing this out, just [read the freakin YCM manual](https://github.com/Valloric/YouCompleteMe#installation).
+[Read the YCM manual](https://github.com/Valloric/YouCompleteMe#installation) for for integration with other languages such as C# and Rust.
+
+### Tricky Spot - Instant Markdown
+
+The markdown plugin needs a `node.js` server to map all changes to the browser.
+```
+yarn global add instant-markdown-d
+```
 
 ## Configuration Practices (By Example)
 
@@ -48,9 +56,9 @@ set tabstop=2
 ### Sensible Indentation - Tab Expansion
 ** *psst*, github will expand tabs to 8 spaces by default
 
-![[*Everyone beating up Github*]](https://i.imgur.com/80gDSHh.png)
+![[*Everyone beating up Github*]](https://i.imgur.com/ZuEpJ15.png)
 
-Expand tabs before github does.
+Expand your tabs before github does.
 ```vim
 " vimrc
 set expandtab

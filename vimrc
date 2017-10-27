@@ -1,9 +1,9 @@
-" _    ___              ____  __                         __  __  _
-"| |  / (_)___ ___     / __ \/ /_  ______ _   ________  / /_/ /_(_)___  ____ ______
-"| | / / / __ `__ \   / /_/ / / / / / __ `/  / ___/ _ \/ __/ __/ / __ \/ __ `/ ___/
-"| |/ / / / / / / /  / ____/ / /_/ / /_/ /  (__  )  __/ /_/ /_/ / / / / /_/ (__  )
-"|___/_/_/ /_/ /_/  /_/   /_/\__,_/\__, /  /____/\___/\__/\__/_/_/ /_/\__, /____/
-"                                 /____/                             /____/
+"  _    ___              ____  __                         __  __  _
+" | |  / (_)___ ___     / __ \/ /_  ______ _   ________  / /_/ /_(_)___  ____ ______
+" | | / / / __ `__ \   / /_/ / / / / / __ `/  / ___/ _ \/ __/ __/ / __ \/ __ `/ ___/
+" | |/ / / / / / / /  / ____/ / /_/ / /_/ /  (__  )  __/ /_/ /_/ / / / / /_/ (__  )
+" |___/_/_/ /_/ /_/  /_/   /_/\__,_/\__, /  /____/\___/\__/\__/_/_/ /_/\__, /____/
+"                                  /____/                             /____/
 
 " Download vim-plug if not already installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -34,13 +34,21 @@ Plug 'https://github.com/hashivim/vim-vagrant'
 Plug 'https://github.com/python-mode/python-mode'
 Plug 'https://github.com/Glench/Vim-Jinja2-Syntax'
 
+" Language Specific [ LaTeX ]
+Plug 'https://github.com/lervag/vimtex'
+Plug 'https://github.com/xuhdev/vim-latex-live-preview'
+
+" Language Specific [ Markdown ]
+Plug 'https://github.com/suan/vim-instant-markdown'
+
 " Language Specific [ Javascript and React ]
 Plug 'https://github.com/pangloss/vim-javascript'
-Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'https://github.com/mtscout6/syntastic-local-eslint.vim'
 Plug 'https://github.com/mxw/vim-jsx'
 
 " Language Specific [ HTML ]
 Plug 'https://github.com/mattn/emmet-vim'
+Plug 'https://github.com/othree/html5.vim'
 
 " Language Specific [ CSS ]
 Plug 'https://github.com/ap/vim-css-color'
@@ -50,14 +58,17 @@ call plug#end()
 " Install all of the plugins above if not already installed
 if empty(glob('~/.vim/plugged'))
     PlugInstall
+
+    " Find a way to auto install the dependencies for the following command
+    silent python ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --js-completer
 endif
 
-"    _   __      __  _               ______            _____                        __  _
-"   / | / /___ _/ /_(_)   _____     / ____/___  ____  / __(_)___ ___  ___________ _/ /_(_)___  ____
-"  /  |/ / __ `/ __/ / | / / _ \   / /   / __ \/ __ \/ /_/ / __ `/ / / / ___/ __ `/ __/ / __ \/ __ \
-" / /|  / /_/ / /_/ /| |/ /  __/  / /___/ /_/ / / / / __/ / /_/ / /_/ / /  / /_/ / /_/ / /_/ / / / /
-"/_/ |_/\__,_/\__/_/ |___/\___/   \____/\____/_/ /_/_/ /_/\__, /\__,_/_/   \__,_/\__/_/\____/_/ /_/
-"                                                        /____/
+"     _   __      __  _               ______            _____                        __  _
+"    / | / /___ _/ /_(_)   _____     / ____/___  ____  / __(_)___ ___  ___________ _/ /_(_)___  ____
+"   /  |/ / __ `/ __/ / | / / _ \   / /   / __ \/ __ \/ /_/ / __ `/ / / / ___/ __ `/ __/ / __ \/ __ \
+"  / /|  / /_/ / /_/ /| |/ /  __/  / /___/ /_/ / / / / __/ / /_/ / /_/ / /  / /_/ / /_/ / /_/ / / / /
+" /_/ |_/\__,_/\__/_/ |___/\___/   \____/\____/_/ /_/_/ /_/\__, /\__,_/_/   \__,_/\__/_/\____/_/ /_/
+"                                                         /____/
 
 let mapleader = ","
 nmap <leader> rc :tabedit $MYVIMRC <CR>
@@ -80,7 +91,6 @@ set expandtab
 " This black magic was pulled from the following SO link
 "
 " https://stackoverflow.com/a/1618401/3834962
-
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -90,12 +100,12 @@ endfun
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
-"    ____  __            _          ______            _____                        __  _
-"   / __ \/ /_  ______ _(_)___     / ____/___  ____  / __(_)___ ___  ___________ _/ /_(_)___  ____  _____
-"  / /_/ / / / / / __ `/ / __ \   / /   / __ \/ __ \/ /_/ / __ `/ / / / ___/ __ `/ __/ / __ \/ __ \/ ___/
-" / ____/ / /_/ / /_/ / / / / /  / /___/ /_/ / / / / __/ / /_/ / /_/ / /  / /_/ / /_/ / /_/ / / / (__  )
-"/_/   /_/\__,_/\__, /_/_/ /_/   \____/\____/_/ /_/_/ /_/\__, /\__,_/_/   \__,_/\__/_/\____/_/ /_/____/
-"              /____/                                   /____/
+"     ____  __            _          ______            _____                        __  _
+"    / __ \/ /_  ______ _(_)___     / ____/___  ____  / __(_)___ ___  ___________ _/ /_(_)___  ____  _____
+"   / /_/ / / / / / __ `/ / __ \   / /   / __ \/ __ \/ /_/ / __ `/ / / / ___/ __ `/ __/ / __ \/ __ \/ ___/
+"  / ____/ / /_/ / /_/ / / / / /  / /___/ /_/ / / / / __/ / /_/ / /_/ / /  / /_/ / /_/ / /_/ / / / (__  )
+" /_/   /_/\__,_/\__, /_/_/ /_/   \____/\____/_/ /_/_/ /_/\__, /\__,_/_/   \__,_/\__/_/\____/_/ /_/____/
+"               /____/                                   /____/
 
 " Colorscheme configuration, duhhh
 colorscheme solarized
