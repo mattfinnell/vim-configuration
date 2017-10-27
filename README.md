@@ -1,14 +1,30 @@
 # Vim Configuration
 
 - Package management using [`vim-plug`](https://github.com/junegunn/vim-plug).
-- `vimrc` automattically installs `vim-plug` and all plugins *if (and only if)* such are not found.
+- `vimrc` automatically installs `vim-plug` and all plugins *if (and only if)* such are not found.
 - `vimrc` serves 3 purposes
   - Declare plugins for `vim-plug`
-  - Set default configuration assumed by (almost) all file types
+  - Set common configuration assumed by (almost) all file types
   - Nothing else.
 - Any language specific configuration that deviates from the defaults must be set in `ftplugin/{{lang}}.vim`
 - Plugins are expected to work out of the box with no configuration. Any configuration must be minimal, otherwise the plugin is considered trash.
 
+## Tricky Spot - YCM
+[`You Complete Me`](https://github.com/Valloric/YouCompleteMe) needs to compile things.
+
+```
+cd ~/.vim/plugged/YouCompleteMe/
+./install.py [flags]
+```
+Where `flags` can be any combination of the following
+
+- `--cs-completer` for C# stuff
+- `--go-completer` for google Go
+- `--js-completer` for JavaScript
+- `--rust-completer` for Rust
+- `--all` for none of the above
+
+Idk why am I typing this out, just [read the freakin YCM manual](https://github.com/Valloric/YouCompleteMe#installation).
 
 ## Configuration Practices (By Example)
 
