@@ -11,6 +11,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
+" Make sure that the plugin screen doesn't do an obnoxious split
+let g:plug_window = 'enew'
+
 " Declare all plugins
 call plug#begin('~/.vim/plugged')
 
@@ -29,9 +32,6 @@ call plug#end()
 if empty(glob("~/.vim/plugged"))
     PlugInstall
 endif
-
-" vim-plug configuration
-let g:plug_window = 'enew'
 
 "     _   __      __  _               ____       ____            ____
 "    / | / /___ _/ /_(_)   _____     / __ \___  / __/___ ___  __/ / /______
