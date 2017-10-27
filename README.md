@@ -40,7 +40,3 @@ Expand tabs before github does.
 set expandtab
 set smarttab
 ```
-
-## Annoying things to Fix
-
-- `press ENTER or type command to continue` BS

@@ -37,7 +37,6 @@ set autoindent
 set noswapfile
 set nocompatible
 set nowrap
-set syntax
 set expandtab
 
 colorscheme solarized
@@ -45,7 +44,6 @@ colorscheme solarized
 " Set nerdcommenter settings
 let g:NERDSpaceDelims = 1 
 let g:NERDDefaultAlign = 'left'
-au FileType * set fo-=c fo-=r fo-=o " disable comment on newline after comment block
 
 " Set the powerline fonts
 let g:airline#extensions#tabline#enabled = 1
