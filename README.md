@@ -33,34 +33,3 @@ The markdown plugin needs a `node.js` server to map all changes to the browser.
 ```
 yarn global add instant-markdown-d
 ```
-
-## Configuration Practices (By Example)
-
-### Sensible Indentation - Depth
-
-All languages use 4 space indentation
-```vim
-" vimrc
-set shiftwidth=4
-set tabstop=4
-```
-
-Except for languages built by idiots (*cough* javascript *cough*) where [deep nesting](http://callbackhell.com/) is almost considered an industry standard (These languages are almost always front-end). HTML and config files are exempt of this ridicule.
-
-```vim
-" ftplugin/javascript.vim
-set shiftwidth=2
-set tabstop=2
-```
-
-### Sensible Indentation - Tab Expansion
-** *psst*, github will expand tabs to 8 spaces by default
-
-![[*Everyone beating up Github*]](https://i.imgur.com/ZuEpJ15.png)
-
-Expand your tabs before github does.
-```vim
-" vimrc
-set expandtab
-set smarttab
-```
