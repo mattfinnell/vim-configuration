@@ -24,11 +24,12 @@ Plug 'https://github.com/altercation/vim-colors-solarized'
 
 " Utilities
 Plug 'https://github.com/vim-syntastic/syntastic'
-Plug 'https://github.com/Valloric/YouCompleteMe'
+" Plug 'https://github.com/Valloric/YouCompleteMe'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/hashivim/vim-vagrant'
+Plug 'https://github.com/terryma/vim-multiple-cursors'
 
 " Language Specific [ Python and Jinja ]
 Plug 'https://github.com/python-mode/python-mode'
@@ -60,7 +61,7 @@ if empty(glob('~/.vim/plugged'))
     PlugInstall
 
     " Find a way to auto install the dependencies for the following command
-    silent python ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --js-completer
+    " silent python ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --js-completer
 endif
 
 "     _   __      __  _               ______            _____                        __  _
@@ -120,7 +121,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'deus'
 
 " You Complete Me (YCM)
-let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " CTRL-P Fuzzy Finder
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git'
