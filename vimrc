@@ -24,44 +24,18 @@ Plug 'https://github.com/altercation/vim-colors-solarized'
 
 " Utilities
 Plug 'https://github.com/vim-syntastic/syntastic'
-" Plug 'https://github.com/Valloric/YouCompleteMe'
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+" Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'https://github.com/hashivim/vim-vagrant'
-Plug 'https://github.com/terryma/vim-multiple-cursors'
-
-" Language Specific [ Python and Jinja ]
-Plug 'https://github.com/python-mode/python-mode'
-Plug 'https://github.com/Glench/Vim-Jinja2-Syntax'
-
-" Language Specific [ LaTeX ]
-Plug 'https://github.com/lervag/vimtex'
-Plug 'https://github.com/xuhdev/vim-latex-live-preview'
 
 " Language Specific [ Markdown ]
 Plug 'https://github.com/suan/vim-instant-markdown'
-
-" Language Specific [ Javascript and React ]
-Plug 'https://github.com/pangloss/vim-javascript'
-Plug 'https://github.com/mtscout6/syntastic-local-eslint.vim'
-Plug 'https://github.com/mxw/vim-jsx'
-
-" Language Specific [ HTML ]
-Plug 'https://github.com/mattn/emmet-vim'
-Plug 'https://github.com/othree/html5.vim'
-
-" Language Specific [ CSS ]
-Plug 'https://github.com/ap/vim-css-color'
 
 call plug#end()
 
 " Install all of the plugins above if not already installed
 if empty(glob('~/.vim/plugged'))
     PlugInstall
-
-    " Find a way to auto install the dependencies for the following command
-    " silent python ~/.vim/plugged/YouCompleteMe/install.py --clang-completer --js-completer
 endif
 
 "     _   __      __  _               ______            _____                        __  _
@@ -87,6 +61,7 @@ set noswapfile
 set nocompatible
 set nowrap
 set expandtab
+set relativenumber
 
 " Automatically Remove trailing whitespace
 " This black magic was pulled from the following SO link
@@ -119,9 +94,3 @@ let g:NERDDefaultAlign = 'left'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'deus'
-
-" You Complete Me (YCM)
-" let g:ycm_autoclose_preview_window_after_insertion = 1
-
-" CTRL-P Fuzzy Finder
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|\.git'
